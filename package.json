@@ -24,6 +24,14 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+      "collectCoverageFrom": [
+        "src/**/*.{js,jsx}",
+        "!<rootDir>/node_modules/",
+        "!src/index.js",
+        "!src/reportWebVitals.js"
+      ]
+    },
   "browserslist": {
     "production": [
       ">0.2%",
