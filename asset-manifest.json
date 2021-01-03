@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/shopifilm/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/shopifilm/static/js/main.f5c408a9.chunk.js",
-    "main.js.map": "/shopifilm/static/js/main.f5c408a9.chunk.js.map",
-    "runtime-main.js": "/shopifilm/static/js/runtime-main.9e77bae0.js",
-    "runtime-main.js.map": "/shopifilm/static/js/runtime-main.9e77bae0.js.map",
-    "static/js/2.3aa8f41d.chunk.js": "/shopifilm/static/js/2.3aa8f41d.chunk.js",
-    "static/js/2.3aa8f41d.chunk.js.map": "/shopifilm/static/js/2.3aa8f41d.chunk.js.map",
-    "static/js/3.98322c6f.chunk.js": "/shopifilm/static/js/3.98322c6f.chunk.js",
-    "static/js/3.98322c6f.chunk.js.map": "/shopifilm/static/js/3.98322c6f.chunk.js.map",
-    "index.html": "/shopifilm/index.html",
-    "static/css/main.ab7136cd.chunk.css.map": "/shopifilm/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.3aa8f41d.chunk.js.LICENSE.txt": "/shopifilm/static/js/2.3aa8f41d.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/shopifilm/static/media/logo.6ce24c58.svg"
+    "main.css": "/shoppies/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/shoppies/static/js/main.f5c408a9.chunk.js",
+    "main.js.map": "/shoppies/static/js/main.f5c408a9.chunk.js.map",
+    "runtime-main.js": "/shoppies/static/js/runtime-main.e7df34bb.js",
+    "runtime-main.js.map": "/shoppies/static/js/runtime-main.e7df34bb.js.map",
+    "static/js/2.3aa8f41d.chunk.js": "/shoppies/static/js/2.3aa8f41d.chunk.js",
+    "static/js/2.3aa8f41d.chunk.js.map": "/shoppies/static/js/2.3aa8f41d.chunk.js.map",
+    "static/js/3.98322c6f.chunk.js": "/shoppies/static/js/3.98322c6f.chunk.js",
+    "static/js/3.98322c6f.chunk.js.map": "/shoppies/static/js/3.98322c6f.chunk.js.map",
+    "index.html": "/shoppies/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/shoppies/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.3aa8f41d.chunk.js.LICENSE.txt": "/shoppies/static/js/2.3aa8f41d.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/shoppies/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9e77bae0.js",
+    "static/js/runtime-main.e7df34bb.js",
     "static/js/2.3aa8f41d.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
     "static/js/main.f5c408a9.chunk.js"
