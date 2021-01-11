@@ -74,7 +74,7 @@ export default function DashboardContainer(){
         </Grid>
         <Grid container>
           <Grid item xs={6} className={classes.movieList}>
-            <MoviesList searchResult={searchResult}  addMovieToNominationList={addMovieToNominationList} />
+            <MoviesList searchResult={searchResult}  nominationList={nominationList} addMovieToNominationList={addMovieToNominationList} />
           </Grid>
           <Grid item xs={6} className={classes.nominationList}>
             <NominationList nominationList={nominationList} addMovieToNominationList={addMovieToNominationList} removeFromNominationList={removeFromNominationList} />
