@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import DashboardContainer from './containers/DashboardContainer'
 import {StylesProvider, ThemeProvider} from '@material-ui/core'
