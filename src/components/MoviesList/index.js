@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
 
 function MovieRow(props) {
     const classes = useStyles()
+
+    function addMovieToNominationList() {
+      props.addMovieToNominationList(props.movie)
+    }
+
     return (
       <Grid container className={classes.row}>
         <Grid item xs={6}>
@@ -41,21 +46,24 @@ function MovieRow(props) {
         <Grid item xs={3}>
         <Button color="primary"
                 name="nominateMovieButton"
-                variant="outlined">Nominate movie</Button>
+                variant="outlined"
+                onClick={addMovieToNominationList}>Nominate movie</Button>
         </Grid>
         <Divider />
       </Grid>
     )
 }
+
 export default function MoviesList(props) {
   let searchResult = props.searchResult
   const classes = useStyles()
+
   return (
     <Grid container className={classes.body}>
       <Card className={classes.card}>
         <CardContent>
         {searchResult ? searchResult.map(function(movie, position) {
-          return <MovieRow movie={movie} key={position} />
+          return <MovieRow movie={movie} key={position} addMovieToNominationList={props.addMovieToNominationList}/>
         }): ''}
         </CardContent>
       </Card>

@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {searchMovie} from './dataFetcher'
-import { Button, Grid, TextField } from '@material-ui/core'
-import Search from '@material-ui/icons/Search'
+import { Grid, Snackbar } from '@material-ui/core'
+import MuiAlert from '@material-ui/lab/Alert';
 import {makeStyles} from '@material-ui/core/styles'
 import SearchBox from './../../components/SearchBox'
 import MoviesList from './../../components/MoviesList'
+import NominationList from './../../components/NominationList'
+import {MAX_MOVIES_ERROR} from './../../errors'
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -32,6 +34,32 @@ const useStyles = makeStyles((theme) => ({
 export default function DashboardContainer(){
   const classes = useStyles()
   const [searchResult, setSearchResult] = useState('')
+  const [nominationList, setNominationList] = useState([])
+  const [snackBarOpen, setSnackBarOpen] = useState(false)
+
+  function addMovieToNominationList(movie) {
+    if (nominationList.length == 5) {
+      setSnackBarOpen(true)
+    } else {
+      setNominationList([...nominationList, movie])
+    }
+  }
+
+  function removeFromNominationList(movie) {
+    let temp = [...nominationList]
+    let index = temp.indexOf(movie)
+    if (index !== -1) {
+      temp.splice(index, 1)
+      setNominationList(temp)
+    }
+  }
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason == 'clickaway') {
+      return;
+    }
+    setSnackBarOpen(false)
+  }
 
   async function searchMoviesByName(movieName) {
     let res = await searchMovie(movieName)
@@ -46,12 +74,18 @@ export default function DashboardContainer(){
         </Grid>
         <Grid container>
           <Grid item xs={6} className={classes.movieList}>
-            <MoviesList searchResult={searchResult} />
+            <MoviesList searchResult={searchResult}  addMovieToNominationList={addMovieToNominationList} />
           </Grid>
           <Grid item xs={6} className={classes.nominationList}>
+            <NominationList nominationList={nominationList} addMovieToNominationList={addMovieToNominationList} removeFromNominationList={removeFromNominationList} />
           </Grid>
         </Grid>
       </Grid>
+      <Snackbar open={snackBarOpen} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <MuiAlert elevation={6} variant="filled" onClose={handleSnackbarClose} severity="error">
+          {MAX_MOVIES_ERROR}
+        </MuiAlert>
+      </Snackbar>
     </>
   )
 }
