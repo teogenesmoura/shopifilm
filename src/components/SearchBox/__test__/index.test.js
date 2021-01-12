@@ -28,9 +28,16 @@ test('typing into search box doesnt break page', () => {
   searchBox.simulate("change");
 })
 
-test('clicking button doesnt break page', () => {
+test('clicking search button doesnt break page', () => {
   let searchMoviesByName = jest.fn()
-  const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName}></SearchBox>)
-  const button = wrapper.findWhere(node => node.is(Button)).last()
+  const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName} />)
+  const button = wrapper.find('#searchMovieButton').last()
   button.simulate('click')
+})
+
+test('clicking feeling lucky button doesnt break page', () => {
+  let searchMoviesByName = jest.fn()
+  const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName} />)
+  const feelingLuckyButton = wrapper.find('#feelingLuckyButton').last()
+  feelingLuckyButton.simulate('click')
 })

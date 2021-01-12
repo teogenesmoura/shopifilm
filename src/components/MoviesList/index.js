@@ -48,7 +48,7 @@ function MovieRow(props) {
         </Grid>
         <Grid item xs={3}>
         <Button color="primary"
-                name="nominateMovieButton"
+                id="nominateMovieButton"
                 variant={movieInNominatedList ?  "disabled" : "outlined"}
                 onClick={addMovieToNominationList}>Nominate movie</Button>
         </Grid>
