@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Button, TextField } from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
+import Top100MoviesIMDB from './../../top100MoviesIMDB'
 
 const useStyles = makeStyles((theme) => ({
   searchTextField: {
@@ -20,6 +21,16 @@ export default function SearchBox(props) {
     setMovieQuery(e.target.value)
   }
 
+  const selectRandomFromArray = (arr) => {
+    return arr[Math.floor(Math.random()*arr.length)]
+  }
+
+  const handleFeelingLuckyButton = () => {
+    const randomMovie= selectRandomFromArray(Top100MoviesIMDB)
+    setMovieQuery(randomMovie.title)
+    props.searchMoviesByName(randomMovie.title)
+  }
+
   return (
     <>
       <TextField id="outlined-search"
@@ -34,10 +45,14 @@ export default function SearchBox(props) {
                onChange={handleChange}
                type="search" />
       <Button color="primary"
-            name="searchMovieButton"
+            id="searchMovieButton"
             variant="outlined"
             data-testid="searchMovieButton"
             onClick={() => props.searchMoviesByName(movieQuery)}>Search movie</Button>
+      <Button color="primary"
+              id="feelingLuckyButton"
+              variant="outlined"
+              onClick={() => handleFeelingLuckyButton()}> Feeling Lucky </Button>
     </>
   )
 }

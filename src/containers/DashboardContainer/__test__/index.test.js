@@ -46,7 +46,7 @@ describe('Testing interactions on DashboardContainer', () => {
     const input = searchBoxWrapper.find('#outlined-search').last()
     input.instance().value = "Star Wars"
     input.simulate("change")
-    const searchButton = searchBoxWrapper.findWhere(node => node.is(Button))
+    const searchButton = searchBoxWrapper.find('#searchMovieButton').last()
     searchButton.simulate('click')
   })
 
@@ -56,7 +56,7 @@ describe('Testing interactions on DashboardContainer', () => {
     const input = searchBoxWrapper.find('#outlined-search').last()
     input.instance().value = "Star Wars"
     input.simulate("change")
-    const searchButton = searchBoxWrapper.findWhere(node => node.is(Button))
+    const searchButton = searchBoxWrapper.find('#searchMovieButton').last()
     searchButton.simulate('click')
     wrapper.update()
     const moviesList = wrapper.findWhere(node => node.is(MoviesList))
@@ -70,11 +70,11 @@ describe('Testing interactions on DashboardContainer', () => {
     const input = searchBoxWrapper.find('#outlined-search').last()
     input.instance().value = "Star Wars"
     input.simulate("change")
-    const searchButton = searchBoxWrapper.findWhere(node => node.is(Button))
+    const searchButton = searchBoxWrapper.find('#searchMovieButton').last()
     searchButton.simulate('click')
     wrapper.update()
     const moviesList = wrapper.findWhere(node => node.is(MoviesList))
-    const nominateButton = moviesList.findWhere(node => node.is(Button)).last()
+    const nominateButton = moviesList.find('#nominateMovieButton').last()
     nominateButton.simulate('click')
     const nominatedList = wrapper.findWhere(node => node.is(NominationList)).last()
     const removeButton = nominatedList.find('#removeButton').last()
@@ -87,11 +87,11 @@ describe('Testing interactions on DashboardContainer', () => {
     const input = searchBoxWrapper.find('#outlined-search').last()
     input.instance().value = "Star Wars"
     input.simulate("change")
-    const searchButton = searchBoxWrapper.findWhere(node => node.is(Button))
+    const searchButton = searchBoxWrapper.find('#searchMovieButton').last()
     searchButton.simulate('click')
     wrapper.update()
     const moviesList = wrapper.findWhere(node => node.is(MoviesList))
-    const nominateButtons = moviesList.findWhere(node => node.is(Button))
+    const nominateButtons = moviesList.find('#nominateMovieButton')
     nominateButtons.forEach((button, index) => {
       button.simulate('click')
     })
