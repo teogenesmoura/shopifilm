@@ -1,21 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import OpenSansSemiBold from './fonts/OpenSans-SemiBold.ttf'
-
-const openSansSemiBold = {
-    fontFamily: 'OpenSans',
-    fontStyle: 'normal',
-    fontDisplay: 'swap',
-    src: `
-      local('OpenSans'),
-      local('OpenSans-SemiBold'),
-      url(${OpenSansSemiBold}) format('ttf')
-    `,
-  };
 
   export const customTheme = createMuiTheme(
     {
     typography: {
-      fontFamily: "OpenSans",
       body:{
         fontSize:12,
         fontStyle: 'semibold',
@@ -57,16 +44,9 @@ const openSansSemiBold = {
         fontStyle: 'semibold',
       }
     },
-    overrides: {
-      MuiCssBaseline: {
-        '@global': {
-          '@font-face': [openSansSemiBold],
-        },
-      },
-    },
     palette: {
       primary: {
-        main: '#121212',
+        main: '#E91E63',
       },
       secondary: {
         main: '#00C354',
