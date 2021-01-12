@@ -49,7 +49,7 @@ export default function NominationList(props) {
         <Grid container className={classes.body}>
           <Card className={classes.card}>
             <CardContent>
-              { props.nominationList ? props.nominationList.map(function(movie, position) {
+              { props.nominationList.length > 0 ? props.nominationList.map(function(movie, position) {
                 return <MovieRow movie={movie} removeFromNominationList={props.removeFromNominationList} key={position} />
               }) : ''}
             </CardContent>

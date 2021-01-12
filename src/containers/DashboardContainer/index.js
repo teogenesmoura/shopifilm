@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {searchMovie} from './dataFetcher'
 import { Grid, Snackbar } from '@material-ui/core'
 import MuiAlert from '@material-ui/lab/Alert';
@@ -34,14 +34,22 @@ const useStyles = makeStyles((theme) => ({
 export default function DashboardContainer(){
   const classes = useStyles()
   const [searchResult, setSearchResult] = useState('')
-  const [nominationList, setNominationList] = useState([])
+  const [nominationList, setNominationList] = useState('')
   const [snackBarOpen, setSnackBarOpen] = useState(false)
+
+  useEffect(() => {
+    const savedNominationList = localStorage.getItem('@shoppies/nominationList')
+    if (savedNominationList !== null) {
+      setNominationList(JSON.parse(savedNominationList))
+    }
+  },[])
 
   function addMovieToNominationList(movie) {
     if (nominationList.length == 5) {
       setSnackBarOpen(true)
     } else {
       setNominationList([...nominationList, movie])
+      localStorage.setItem('@shoppies/nominationList', JSON.stringify([...nominationList, movie]))
     }
   }
 
@@ -51,6 +59,7 @@ export default function DashboardContainer(){
     if (index !== -1) {
       temp.splice(index, 1)
       setNominationList(temp)
+      localStorage.setItem('@shoppies/nominationList', JSON.stringify(temp))
     }
   }
 
