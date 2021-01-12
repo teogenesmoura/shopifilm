@@ -12,28 +12,20 @@ const useStyles = makeStyles((theme) => ({
   body: {
     backgroundColor: theme.palette.primary.white,
     height: '100vh',
+    flexGrow: '1',
     display: 'flex',
   },
   leftContainer: {
-    height: '100vh',
     backgroundColor: theme.palette.primary.white,
   },
   rightContainer: {
-    height: '100vh',
     backgroundColor: theme.palette.primary.main
   },
   searchHolder: {
-    height: '100vh',
     flexDirection: 'column'
   },
   resultHolder: {
-    height: '100vh',
-  },
-  movieList: {
-    height: '100vh',
-  },
-  nominationList: {
-    height: '50vh',
+    overflow: 'auto'
   },
 }))
 
@@ -84,11 +76,15 @@ export default function DashboardContainer(){
   return(
     <>
       <Grid container className={classes.body}>
-        <Grid container xs={8} className={classes.leftContainer}>
-          <Grid item xs={6} className={classes.searchHolder}>
-            <SearchBox searchMoviesByName={searchMoviesByName} />
+        <Grid item xs={8} className={classes.leftContainer}>
+          <Grid container>
+            <Grid item xs={4} className={classes.searchHolder}>
+              <SearchBox searchMoviesByName={searchMoviesByName} />
+            </Grid>
+            <Grid item xs={8} className={classes.resultHolder}>
+            <MoviesList searchResult={searchResult}  nominationList={nominationList} addMovieToNominationList={addMovieToNominationList} />
+            </Grid>
           </Grid>
-          <Grid item xs={6} className={classes.resultHolder}></Grid>
         </Grid>
         <Grid item xs={4} className={classes.rightContainer}>
         </Grid>

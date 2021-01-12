@@ -4,12 +4,13 @@ import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    padding: '0 1rem',
-    display: 'flex',
-    overflow: 'auto'
+    height: '100vh',
+    overflow: 'auto',
+    padding: '2rem 1rem'
   },
   row: {
     padding: '1rem 0',
+    width: '100%'
   },
   movieTitle: {
     color: 'black'
@@ -17,11 +18,6 @@ const useStyles = makeStyles((theme) => ({
   movieYear: {
     color: 'black'
   },
-  card: {
-    width: '100%',
-    height: '40vh',
-    overflow: 'auto'
-  }
 }))
 
 function MovieRow(props) {
@@ -37,17 +33,17 @@ function MovieRow(props) {
     return (
       <Grid container className={classes.row}>
         <Grid item xs={6}>
-          <Typography className={classes.movieTitle}>
+          <Typography variant="h4" className={classes.movieTitle}>
             {props.movie.Title}
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography className={classes.movieYear}>
+          <Typography variant="h4" className={classes.movieYear}>
             {props.movie.Year}
           </Typography>
         </Grid>
         <Grid item xs={3}>
-        <Button color="primary"
+          <Button color="primary"
                 id="nominateMovieButton"
                 variant={movieInNominatedList ?  "disabled" : "outlined"}
                 onClick={addMovieToNominationList}>Nominate movie</Button>
@@ -63,16 +59,12 @@ export default function MoviesList(props) {
 
   return (
     <Grid container className={classes.body}>
-      <Card className={classes.card}>
-        <CardContent>
         {searchResult ? searchResult.map(function(movie, position) {
           return <MovieRow movie={movie}
                            key={position}
                            addMovieToNominationList={props.addMovieToNominationList}
                            nominationList={props.nominationList}/>
         }): ''}
-        </CardContent>
-      </Card>
     </Grid>
   )
 }
