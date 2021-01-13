@@ -4,23 +4,25 @@ import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    padding: '0 1rem',
-    display: 'flex',
-    overflow: 'auto'
+    height: '100vh',
+    overflow: 'auto',
+    padding: '2rem 1rem'
   },
   row: {
     padding: '1rem 0',
+    width: '100%'
   },
   movieTitle: {
-    color: 'black'
+    fontWeight: '400'
   },
   movieYear: {
-    color: 'black'
+    fontWeight: '100',
+    fontStyle: "italic"
   },
-  card: {
-    width: '100%',
-    height: '40vh',
-    overflow: 'auto'
+  alternateContent: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignContent: 'center',
   }
 }))
 
@@ -37,17 +39,17 @@ function MovieRow(props) {
     return (
       <Grid container className={classes.row}>
         <Grid item xs={6}>
-          <Typography className={classes.movieTitle}>
+          <Typography variant="h4" className={classes.movieTitle}>
             {props.movie.Title}
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography className={classes.movieYear}>
+          <Typography variant="h4" className={classes.movieYear}>
             {props.movie.Year}
           </Typography>
         </Grid>
         <Grid item xs={3}>
-        <Button color="primary"
+          <Button color="primary"
                 id="nominateMovieButton"
                 variant={movieInNominatedList ?  "disabled" : "outlined"}
                 onClick={addMovieToNominationList}>Nominate movie</Button>
@@ -63,16 +65,16 @@ export default function MoviesList(props) {
 
   return (
     <Grid container className={classes.body}>
-      <Card className={classes.card}>
-        <CardContent>
         {searchResult ? searchResult.map(function(movie, position) {
           return <MovieRow movie={movie}
                            key={position}
                            addMovieToNominationList={props.addMovieToNominationList}
                            nominationList={props.nominationList}/>
-        }): ''}
-        </CardContent>
-      </Card>
+        }):
+        <Grid container className={classes.alternateContent}>
+          <Typography variant="h4" style={{margin: '0 0 1rem 0'}}><b>Pro tip 1:</b> Don't worry about saving your nomination list. It'll be ready waiting for you when you come back!</Typography>
+          <Typography variant="h4"><b>Pro tip 2:</b> Hitting the "I'm feeling lucky" button will load a random movie from IMDB's top 100 list!</Typography>
+        </Grid>}
     </Grid>
   )
 }
