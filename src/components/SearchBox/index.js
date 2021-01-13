@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '2rem 0 0 0'
   },
   input: {
-    color: 'red',
+    color: theme.palette.primary.main,
   },
   button: {
     margin: '1rem 0.5rem 0 0',
@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '3rem 0 0 0'
   },
   title: {
-    margin: '1rem 0 0 0'
+    margin: '1rem 0 0 0',
+    fontWeight: '100'
   }
 }))
 
@@ -63,7 +64,7 @@ export default function SearchBox(props) {
       <Grid item className={classes.header}>
         <img src={Prize} height="auto" width="240" alt="prize illustration"/>
         <Typography variant="h2" gutterBottom className={classes.title}>
-          The Shoppies
+          The <b>Shoppies</b>
         </Typography>
       </Grid>
       <Grid item className={classes.middleBody}>

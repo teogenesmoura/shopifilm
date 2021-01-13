@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 
-  export const customTheme = createMuiTheme(
+export const customTheme = responsiveFontSizes(createMuiTheme(
     {
     typography: {
       body:{
@@ -70,4 +70,4 @@ import { createMuiTheme } from '@material-ui/core/styles'
         primary: "#FFFFFF"
       }
     },
-  });
+  }));

@@ -13,11 +13,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100%'
   },
   movieTitle: {
-    color: 'black'
+    fontWeight: '400'
   },
   movieYear: {
-    color: 'black'
+    fontWeight: '100',
+    fontStyle: "italic"
   },
+  alternateContent: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+  }
 }))
 
 function MovieRow(props) {
@@ -64,7 +70,11 @@ export default function MoviesList(props) {
                            key={position}
                            addMovieToNominationList={props.addMovieToNominationList}
                            nominationList={props.nominationList}/>
-        }): ''}
+        }):
+        <Grid container className={classes.alternateContent}>
+          <Typography variant="h4" style={{margin: '0 0 1rem 0'}}><b>Pro tip 1:</b> Don't worry about saving your nomination list. It'll be ready waiting for you when you come back!</Typography>
+          <Typography variant="h4"><b>Pro tip 2:</b> Hitting the "I'm feeling lucky" button will load a random movie from IMDB's top 100 list!</Typography>
+        </Grid>}
     </Grid>
   )
 }
