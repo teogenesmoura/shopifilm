@@ -29,33 +29,3 @@ test('clicking outside snackbar should not break page', () => {
   mount(<SnackBar setSnackBarOpen={setSnackBarOpen} snackBarOpen={snackBarOpen}></SnackBar>)
   fireEvent.mouseDown(document.body)
 })
-//
-// test('does search button exists', () => {
-//   let searchMoviesByName = jest.fn()
-//   const { getByTestId } = render(
-//    <SearchBox searchMoviesByName={searchMoviesByName}></SearchBox>
-//    )
-//   expect(getByTestId('searchMovieButton')).toBeTruthy(); //passes
-// })
-//
-// test('typing into search box doesnt break page', () => {
-//   let searchMoviesByName = jest.fn()
-//   const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName}></SearchBox>)
-//   const searchBox = wrapper.find("#outlined-search").last()
-//   searchBox.instance().value = "summaryBox test";
-//   searchBox.simulate("change");
-// })
-//
-// test('clicking search button doesnt break page', () => {
-//   let searchMoviesByName = jest.fn()
-//   const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName} />)
-//   const button = wrapper.find('#searchMovieButton').last()
-//   button.simulate('click')
-// })
-//
-// test('clicking feeling lucky button doesnt break page', () => {
-//   let searchMoviesByName = jest.fn()
-//   const wrapper = mount(<SearchBox searchMoviesByName={searchMoviesByName} />)
-//   const feelingLuckyButton = wrapper.find('#feelingLuckyButton').last()
-//   feelingLuckyButton.simulate('click')
-// })
