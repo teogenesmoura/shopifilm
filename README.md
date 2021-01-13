@@ -10,6 +10,9 @@
 
 The Shoppies is Shopify's challenge for the Summer 2021 Front-End Developer internship. The document of requirements can be found [here](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit?usp=sharing). I've implemented all technical requirements, as well as two extras: One suggested by Shopify (Saving a nominationList if a user leaves the page) and other I came up with (The "Feeling Lucky " button).
 
+## Live demo
+A live demo of this project can be found [here](http://teogenesmoura.github.io/shoppies)
+
 ## Pre-requisites
 
 In order to run the project locally the following software packages are necessary:
